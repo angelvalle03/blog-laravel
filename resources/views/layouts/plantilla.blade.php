@@ -10,6 +10,14 @@
 </head>
 <body>
     <!-- header -->
+    <div style="background-color: #999999; width:100%; padding:10px;">
+        <ul>
+            <li>Home</li>
+            <li>contact</li>
+            <li>about us</li>
+
+        </ul>
+    </div>
     <!-- nav -->
     @yield('content')
     <!-- footer -->

@@ -16,11 +16,11 @@ use App\Http\Controllers\CursoController;
 
 Route::get('/', HomerController::class);
 
-route::get('cursos', [CursoController::class, 'index']);
+route::get('cursos', [CursoController::class, 'index'])->name('cursos.index');
 
-Route::get('cursos/create',[CursoController::class, 'create']);
+Route::get('cursos/create',[CursoController::class, 'create'])->name('cursos.create');
 
-route::get("cursos/{curso}", [CursoController::class, 'show']);
+route::get("cursos/{id}", [CursoController::class, 'show'])->name('cursos.show');
 
 
 /**Incluir dos variables por la url */

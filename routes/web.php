@@ -19,9 +19,13 @@ Route::get('/', HomerController::class);
 route::get('cursos', [CursoController::class, 'index'])->name('cursos.index');
 
 Route::get('cursos/create',[CursoController::class, 'create'])->name('cursos.create');
+//no importa si hay dos rutas con el mismo nombre siemrpe y mcuando el metodo de envio (get, post) sean diferente y se le indique en la vista
+Route::post('cursos',[CursoController::class, 'store'])->name('cursos.store');
 
 route::get("cursos/{id}", [CursoController::class, 'show'])->name('cursos.show');
+route::get("cursos/{curso}/edit", [CursoController::class, 'edit'])->name('cursos.edit');
 
+route::put("cursos/{curso}", [CursoController::class, 'update'])->name('cursos.update');
 
 /**Incluir dos variables por la url */
 // Route::get('cursos/{curso}/{categoria}', function ($curso, $categoria) {

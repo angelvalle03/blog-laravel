@@ -13,7 +13,7 @@
     <!-- header -->
     <div style="background-color: #999999; width:100%; padding:10px;">
         <ul>
-            <li>Home</li>
+            <li><a href="{{route('cursos.index')}}">Home</a></li>
             <li>contact</li>
             <li>about us</li>
 

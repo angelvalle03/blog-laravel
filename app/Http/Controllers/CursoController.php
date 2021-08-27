@@ -20,7 +20,19 @@ class CursoController extends Controller
     //metodo encargado de actualizar un regirtro con nueva informacion
     //creando el objeto request permite recuperar todo lo que se envio desde el formulario 
     public function store(Request $request){
+        //validacion de que se esten ingresando datos en el formulario
+        //verifica que los campos que se estan mandando por el formulario tengan algun conenido
+        //si se cumplen las tres reglas de validacion con required seigue el programa
+        $request->validate([
+            'name'=> 'required|max:10',
+            'description'=> 'required|min:10',
+            'categoria'=> 'required'
+        ]);
+        // /si se cumple sigue lo siguiente
+
+
         $curso = new Curso;
+        
         $curso->name = $request->name;
         $curso->description = $request->description;
         $curso->categoria = $request->categoria;
@@ -47,6 +59,16 @@ class CursoController extends Controller
 
     //Este metodo permite como tal editar el registro y mandarlo a la base de datos
     public function update(Request $request, Curso $curso){
+        //validacion de que se esten ingresando datos en el formulario
+        //verifica que los campos que se estan mandando por el formulario tengan algun conenido
+        //si se cumplen las tres reglas de validacion con required seigue el programa
+        $request->validate([
+            'name'=> 'required',
+            'description'=> 'required',
+            'categoria'=> 'required'
+        ]);
+        // /si se cumple sigue lo siguiente     
+        
         $curso->name = $request->name;
         $curso->description = $request->description;
         $curso->categoria = $request->categoria;

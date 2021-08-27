@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Curso;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreCurso;
 
 class CursoController extends Controller
 {
@@ -19,18 +20,7 @@ class CursoController extends Controller
 
     //metodo encargado de actualizar un regirtro con nueva informacion
     //creando el objeto request permite recuperar todo lo que se envio desde el formulario 
-    public function store(Request $request){
-        //validacion de que se esten ingresando datos en el formulario
-        //verifica que los campos que se estan mandando por el formulario tengan algun conenido
-        //si se cumplen las tres reglas de validacion con required seigue el programa
-        $request->validate([
-            'name'=> 'required|max:10',
-            'description'=> 'required|min:10',
-            'categoria'=> 'required'
-        ]);
-        // /si se cumple sigue lo siguiente
-
-
+    public function store(StoreCurso $request){
         $curso = new Curso;
         
         $curso->name = $request->name;

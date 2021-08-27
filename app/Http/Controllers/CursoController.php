@@ -21,12 +21,18 @@ class CursoController extends Controller
     //metodo encargado de actualizar un regirtro con nueva informacion
     //creando el objeto request permite recuperar todo lo que se envio desde el formulario 
     public function store(StoreCurso $request){
-        $curso = new Curso;
+        // $curso = new Curso;
         
-        $curso->name = $request->name;
-        $curso->description = $request->description;
-        $curso->categoria = $request->categoria;
-        $curso->save();
+        // $curso->name = $request->name;
+        // $curso->description = $request->description;
+        // $curso->categoria = $request->categoria;
+        // $curso->save();
+
+        // creando la instancia curso de otra manera para la asignacion masiva
+        //no se llama al metodo save para que guarde en la db
+        //se crea una instancia de la clase curso y le va agregar las propiedades name, description y categoria
+        $curso = Curso::create($request->all());
+        
         //De esta forma le pedimos al controlador que redireccione a una pagina en especifico
         //Laravel entiendo que al pasarle la variable curso tiene que llamar la proiedad id
         return redirect()->route('cursos.show',$curso);
@@ -59,10 +65,14 @@ class CursoController extends Controller
         ]);
         // /si se cumple sigue lo siguiente     
         
-        $curso->name = $request->name;
-        $curso->description = $request->description;
-        $curso->categoria = $request->categoria;
-        $curso->save();
+        // $curso->name = $request->name;
+        // $curso->description = $request->description;
+        // $curso->categoria = $request->categoria;
+        // $curso->save();
+
+        //Editando un registro con asgnacion masiva
+        $curso->update($request->all());
+        
         return redirect()->route('cursos.show',$curso);
     }
 }

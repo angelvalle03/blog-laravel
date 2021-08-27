@@ -37,7 +37,7 @@ class StoreCurso extends FormRequest
 
     public function attributes()
     {
-        return[
+        return[ 
             'name'=>'nombre del curso',
         ];
     }

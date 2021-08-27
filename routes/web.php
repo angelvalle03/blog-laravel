@@ -27,6 +27,8 @@ route::get("cursos/{curso}/edit", [CursoController::class, 'edit'])->name('curso
 
 route::put("cursos/{curso}", [CursoController::class, 'update'])->name('cursos.update');
 
+
+Route::delete('cusos/{curso}', [CursoController::class, 'destroy'])->name('cursos.destroy');
 /**Incluir dos variables por la url */
 // Route::get('cursos/{curso}/{categoria}', function ($curso, $categoria) {
 //     return "Bienvenido al curso $curso de la categoria $categoria";

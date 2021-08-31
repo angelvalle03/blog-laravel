@@ -8,20 +8,22 @@
     <title>@yield('title')</title>
     <!-- favicon -->
     <!-- estilos -->
+    <style>
+        .active{
+            color: red;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <!-- header -->
-    <div style="background-color: #999999; width:100%; padding:10px;">
-        <ul>
-            <li><a href="{{route('cursos.index')}}">Home</a></li>
-            <li>contact</li>
-            <li>about us</li>
-
-        </ul>
-    </div>
     <!-- nav -->
+    {{-- se incluye el header aparte --}}
+    @include('layouts.partials.header')
+
     @yield('content')
     <!-- footer -->
+    @include('layouts.partials.footer')
     <!-- script -->
 </body>
 </html>

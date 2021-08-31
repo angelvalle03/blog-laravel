@@ -14,7 +14,7 @@ use App\Http\Controllers\CursoController;
 |
 */
 
-// Route::get('/', HomerController::class);
+Route::get('/', HomerController::class)->name('home');
 
 // Route::get('cursos', [CursoController::class, 'index'])->name('cursos.index');
 
@@ -35,6 +35,8 @@ Route::resource('cursos', CursoController::class);
 
 //modificando la url
 //Route::resource('asignaturas', CursoController::class)->parameters(['asignaturas' => 'curso'])->names('cursos');
+
+Route::view('nosotros', 'nosotros')->name('nosotros');
 
 /**Incluir dos variables por la url */
 // Route::get('cursos/{curso}/{categoria}', function ($curso, $categoria) {

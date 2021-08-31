@@ -15,4 +15,11 @@ class Curso extends Model
     //Esta otra variable permite proteger los campos no permitidos
     //si la dejamos vacia no hay problema al momento de crear un registro
     protected $guarded = [];
+
+    //con este metodo se le indica a laravel que almoemento de mandar el id por url mande el slug y no el id
+    // es decir va a mostrar todo lo relacionado a ese slug 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }

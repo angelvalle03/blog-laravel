@@ -13,15 +13,16 @@ class ContactanosMailable extends Mailable
 
     //Este sera el asunto que lleve el correo
     public $subject = "Informacion de contacto";
-
+    public $contacto;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    //re recibe la informacion que se manda para el envio del correo
+    public function __construct($contacto)
     {
-        //
+        $this->contacto = $contacto;
     }
 
     /**

@@ -1,10 +1,10 @@
 <?php
 
+use App\Http\Controllers\ContactanosController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomerController;
 use App\Http\Controllers\CursoController;
-use App\Mail\ContactanosMailable;
-use Illuminate\Support\Facades\Mail;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,12 +40,11 @@ Route::resource('cursos', CursoController::class);
 
 Route::view('nosotros', 'nosotros')->name('nosotros');
 
+//ruta indicada para el envio de correo electronico
+Route::get('contactanos', [ContactanosController::class, 'index'])->name('contactanos.index');
+Route::post('contactanos', [ContactanosController::class, 'store'])->name('contactanos.store');
 
-Route::get('contactanos', function () {
-    $correo = new ContactanosMailable;
-    Mail::to('angelvalle172@gmail.com')->send($correo);
-    return "Mensaje enviado con exito!!";
-});
+
 /**Incluir dos variables por la url */
 // Route::get('cursos/{curso}/{categoria}', function ($curso, $categoria) {
 //     return "Bienvenido al curso $curso de la categoria $categoria";
